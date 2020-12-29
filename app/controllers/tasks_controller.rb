@@ -1,44 +1,72 @@
 class TasksController < ApplicationController
+
   def index
-    @tasks = Task.where(completed: false).order('priority DESC')
-    @completed_tasks = Task.where(completed: true).order('updated_at')
+    if user_signed_in?
+      @tasks = Task.all
+      @uncompleted_tasks = current_user.tasks.where(completed: false).order('priority DESC')
+      @completed_tasks = current_user.tasks.where(completed: true).order('updated_at')
+    end
   end
 
   def new
-    @task = Task.new
-  end
-
-  def create
-    @task = Task.new task_params
-    @task.save
-    redirect_to tasks_path
+    build_task
   end
 
   def edit
-    @task = Task.find params[:id]
+    task
   end
 
-  def update
-    @task = Task.find params[:id]
-    @task.update(task_params)
+  def create
+    create_task
     redirect_to tasks_path
   end
 
   def complete
-    @task = Task.find params[:id]
-    @task.complete!
+    complete_task
+    redirect_to tasks_path
+  end
+
+  def update
+    update_task
     redirect_to tasks_path
   end
 
   def destroy
-    @task = Task.find params[:id]
-    @task.destroy
+    destroy_task
     redirect_to tasks_path
   end
 
+  private
+
   def task_params
-    params.require(:task).permit([
-      :title, :priority, :completed
-      ])
+    params.require(:task).permit(
+      :title, :description, :priority, :due_date, :completed
+    )
   end
+
+  def task
+    @task ||= current_user.tasks.find(params[:id])
+  end
+
+  def build_task
+    @task = current_user.tasks.new
+  end
+
+  def create_task
+    @task = current_user.tasks.new task_params
+    @task.save
+  end
+
+  def complete_task
+    task.complete!
+  end
+
+  def update_task
+    task.update(task_params)
+  end
+
+  def destroy_task
+    task.destroy
+  end
+
 end

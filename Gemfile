@@ -11,12 +11,14 @@ gem 'jquery-rails'
 gem 'simple_form'
 gem 'twitter-bootstrap-rails'
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'devise'
+gem 'therubyracer', platforms: :ruby
+gem 'figaro'
 
 group :assets do
   gem 'sass-rails', '>= 6'
   gem 'uglifier'
   gem 'coffee-rails'
-  gem 'therubyracer', platforms: :ruby
 end
 
 group :production do

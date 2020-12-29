@@ -14,7 +14,10 @@
  *= require_self
  */
 
- body {font-size: 1.75em}
+ body {
+   font-size: 1.75em;
+   background-color: #C1C8F7;
+ }
 
  .buffer-top {
    margin-top: 2em;
@@ -23,13 +26,14 @@
  .task {
    margin-bottom: 1em;
 
-   .action {opacity: 0;}
+   .action {opacity: 0.3;}
 
    &:hover .action{
      opacity: 1;
      transition: opacity 0.5 ease;
    }
  }
+
 
  .priority_1 {color: #009090}
  .priority_2 {color: #c09000}
@@ -41,3 +45,8 @@
  }
 
  .completed_true .done {display: none}
+
+ .navbar-brand{
+   font-size: 1.4em;
+   color: black;
+ }
