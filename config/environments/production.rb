@@ -2,7 +2,7 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
 
-  config.action_mailer.default_url_options = { :host => 'https://task-managementest.herokuapp.com'}
+  config.action_mailer.default_url_options = { :host => 'https://task-management2020.herokuapp.com'}
   ActionMailer::Base.perform_deliveries = true
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
