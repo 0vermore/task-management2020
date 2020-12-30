@@ -2,8 +2,10 @@ class TasksController < ApplicationController
 
   def index
       @tasks = Task.all
-      @uncompleted_tasks = current_user.tasks.where(completed: false).order('priority DESC')
-      @completed_tasks = current_user.tasks.where(completed: true).order('updated_at')
+      if user_signed_in?
+        @uncompleted_tasks = current_user.tasks.where(completed: false).order('priority DESC')
+        @completed_tasks = current_user.tasks.where(completed: true).order('updated_at')
+      end
   end
 
   def new
