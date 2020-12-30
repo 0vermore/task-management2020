@@ -1,11 +1,9 @@
 class TasksController < ApplicationController
 
   def index
-    if user_signed_in?
       @tasks = Task.all
       @uncompleted_tasks = current_user.tasks.where(completed: false).order('priority DESC')
       @completed_tasks = current_user.tasks.where(completed: true).order('updated_at')
-    end
   end
 
   def new
@@ -40,7 +38,7 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(
-      :title, :description, :priority, :due_date, :completed
+      :title, :description, :priority, :due_date, :completed, :user_id
     )
   end
 
