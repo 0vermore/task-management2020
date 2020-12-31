@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'twitter-bootstrap-rails'
+gem 'bootstrap-sass'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise'
 gem 'therubyracer', platforms: :ruby

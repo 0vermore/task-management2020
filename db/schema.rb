@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2020_12_30_150035) do
     t.string "title"
     t.string "description"
     t.integer "priority"
-    t.datetime "due_date"
+    t.date "due_date"
     t.boolean "completed"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
