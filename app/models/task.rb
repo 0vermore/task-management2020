@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
   belongs_to :user
-  
+
   PRIORITIES = [
     ['Later', 1],
     ['Next', 2],
@@ -8,7 +8,12 @@ class Task < ApplicationRecord
   ]
 
   def complete!
-    self.completed = true
-    save
+    if self.completed == false
+      self.completed = true
+      save
+    else
+      self.completed = false
+      save
+    end
   end
 end
