@@ -37,9 +37,18 @@
  }
 
  .task {
-   margin-bottom: 1em;
+   border:2px solid #AFAFAF;
+   border-radius:1em;
+   margin:0.6em;
+   padding-top: 0.4em;
+   padding-left: 0.5em;
 
-   .action {opacity: 0.3;}
+   .action {
+     font-size: 1.2em;
+     float: right;
+     margin-right: 1.2em;
+     opacity: 0.3;
+   }
 
    &:hover .action{
      opacity: 1;
@@ -47,15 +56,10 @@
    }
  }
 
-
  .priority_1 {color: #009090}
  .priority_2 {color: #c09000}
  .priority_3 {color: #c00000}
  .completed_true {color: #c0c0c0; text-decoration: line-through}
-
- .done {
-   margin-left: 10px;
- }
 
  .navbar-brand{
    font-size: 1.4em;
